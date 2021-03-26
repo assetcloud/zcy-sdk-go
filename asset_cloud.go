@@ -45,7 +45,7 @@ type AssetCloudResponse struct {
 	Msg string				`json:"msg"`
 }
 
-func send(cloudRequest *AssetCloudRequest) *AssetCloudResponse {
+func Send(cloudRequest *AssetCloudRequest) *AssetCloudResponse {
 	client := &http.Client{}
 
 	bodyBytes := []byte(cloudRequest.Body)
