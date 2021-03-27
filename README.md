@@ -7,62 +7,81 @@
     go get github.com/hyc94/zcy-sdk-go
 ### 使用
 Get调用方法：
+```go
+    import (
+    	asset "github.com/hyc94/zcy-sdk-go"
+    )
 
-	request := &AssetCloudRequest{
-		Url:        "",
-		Key:        "",
-		Secret:     "",
-		Body:       "",
-		HttpMethod: "GET",
-	}
-	response := send(request)
-	respBytes, _ := json.Marshal(response)
-	println(string(respBytes))
-
+    request := &asset.AssetCloudRequest{
+        Url:        "",
+        Key:        "",
+        Secret:     "",
+        Body:       "",
+        HttpMethod: asset.GET,
+    }
+    response := asset.Send(request)
+    respBytes, _ := json.Marshal(response)
+    println(string(respBytes))
+```
 Post调用方法：
+```go
+    import (
+    	"encoding/json"
+    	asset "github.com/hyc94/zcy-sdk-go"
+    )
 
     bodyMap := make(map[string]interface{})
-	bodyMap["key1"] = "val1"
-	bodyBytes, _ := json.Marshal(bodyMap)
-	postRequest := &AssetCloudRequest{
-		Url:        "",
-		Key:        "",
-		Secret:     "",
-		Body:       string(bodyBytes),
-		HttpMethod: "POST",
-	}
-	postResponse := send(postRequest)
-	postRespBytes, _ := json.Marshal(postResponse)
-	println(string(postRespBytes))
+    bodyMap["key1"] = "val1"
+    bodyBytes, _ := json.Marshal(bodyMap)
+    postRequest := &asset.AssetCloudRequest{
+        Url:        "",
+        Key:        "",
+        Secret:     "",
+        Body:       string(bodyBytes),
+        HttpMethod: asset.POST,
+    }
+    postResponse := asset.Send(postRequest)
+    postRespBytes, _ := json.Marshal(postResponse)
+    println(string(postRespBytes))
+```
+DELETE调用方法：
+```go
+    import (
+        asset "github.com/hyc94/zcy-sdk-go"
+    )
 
-DELTE调用方法：
-
-    request := &AssetCloudRequest{
-		Url:        "",
-		Key:        "",
-		Secret:     "",
-		Body:       "",
-		HttpMethod: "DELETE",
-	}
-	response := send(request)
-	respBytes, _ := json.Marshal(response)
-	println(string(respBytes))
-
+    request := &asset.AssetCloudRequest{
+        Url:        "",
+        Key:        "",
+        Secret:     "",
+        Body:       "",
+        HttpMethod: asset.DELETE,
+    }
+    response := asset.Send(request)
+    respBytes, _ := json.Marshal(response)
+    println(string(respBytes))
+```
 PUT调用方法：
+```go
+    import (
+    	"encoding/json"
+    	asset "github.com/hyc94/zcy-sdk-go"
+    )
 
     bodyMap := make(map[string]interface{})
-	bodyMap["key1"] = "val1"
-	bodyBytes, _ := json.Marshal(bodyMap)
-	postRequest := &AssetCloudRequest{
-		Url:        "",
-		Key:        "",
-		Secret:     "",
-		Body:       string(bodyBytes),
-		HttpMethod: "PUT",
-	}
-	postResponse := send(postRequest)
-	postRespBytes, _ := json.Marshal(postResponse)
-	println(string(postRespBytes))
+    bodyMap["key1"] = "val1"
+    bodyBytes, _ := json.Marshal(bodyMap)
+    postRequest := &asset.AssetCloudRequest{
+        Url:        "",
+        Key:        "",
+        Secret:     "",
+        Body:       string(bodyBytes),
+        HttpMethod: asset.PUT,
+    }
+    postResponse := asset.Send(postRequest)
+    postRespBytes, _ := json.Marshal(postResponse)
+    println(string(postRespBytes))
+```
 
 返回结果为AssetCloudResponse：
 | 字段 | 类型 | 说明 |
