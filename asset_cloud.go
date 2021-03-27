@@ -7,8 +7,8 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
-	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -55,7 +55,8 @@ func Send(cloudRequest *AssetCloudRequest) *AssetCloudResponse {
 
 	request, e := http.NewRequest(cloudRequest.HttpMethod, url, bytes.NewBuffer(bodyBytes))
 	if e != nil {
-		os.Exit(1)
+		log.Printf("error new request: %v\n", e)
+		return nil
 	}
 	request.Header.Add("key", cloudRequest.Key)
 	// POST、PUT采用json传输
@@ -66,19 +67,22 @@ func Send(cloudRequest *AssetCloudRequest) *AssetCloudResponse {
 	// 发起请求
 	response, e := client.Do(request)
 	if e != nil {
-		os.Exit(1)
+		log.Printf("error send request: %v\n", e)
+		return nil
 	}
 	defer response.Body.Close()
 	// 读取请求返回结果
 	respBytes, e := ioutil.ReadAll(response.Body)
 	if e != nil {
-		os.Exit(1)
+		log.Printf("error reading from response: %v\n", e)
+		return nil
 	}
 
 	resp := AssetCloudResponse{}
 	e = json.Unmarshal(respBytes, &resp)
 	if e != nil {
-		os.Exit(1)
+		log.Printf("error json unmarshal: %v\n", e)
+		return nil
 	}
 	return &resp
 }
