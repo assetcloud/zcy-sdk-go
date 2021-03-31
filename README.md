@@ -4,12 +4,12 @@
 
 ### 安装
 ---
-    go get github.com/hyc94/zcy-sdk-go
+    go get github.com/assetcloud/zcy-sdk-go
 ### 使用
 Get调用方法：
 ```go
     import (
-    	asset "github.com/hyc94/zcy-sdk-go"
+    	asset "github.com/assetcloud/zcy-sdk-go"
     )
 
     request := &asset.AssetCloudRequest{
@@ -27,7 +27,7 @@ Post调用方法：
 ```go
     import (
     	"encoding/json"
-    	asset "github.com/hyc94/zcy-sdk-go"
+    	asset "github.com/assetcloud/zcy-sdk-go"
     )
 
     bodyMap := make(map[string]interface{})
@@ -47,7 +47,7 @@ Post调用方法：
 DELETE调用方法：
 ```go
     import (
-        asset "github.com/hyc94/zcy-sdk-go"
+        asset "github.com/assetcloud/zcy-sdk-go"
     )
 
     request := &asset.AssetCloudRequest{
@@ -65,7 +65,7 @@ PUT调用方法：
 ```go
     import (
     	"encoding/json"
-    	asset "github.com/hyc94/zcy-sdk-go"
+    	asset "github.com/assetcloud/zcy-sdk-go"
     )
 
     bodyMap := make(map[string]interface{})
