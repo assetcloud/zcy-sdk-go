@@ -1,3 +1,3 @@
-module github.com/hyc94/zcy-sdk-go
+module github.com/assetcloud/zcy-sdk-go
 
 go 1.14
